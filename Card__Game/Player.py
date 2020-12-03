@@ -11,22 +11,23 @@ class Player:
         self.playerdeck = []
 
     def set_hand(self, maindeck):
-        if maindeck != DeckOfCards():
-            raise TypeError("Invalid Type, Must be DeckOfCards.")
         for i in range(self.numofcards):
             self.playerdeck.append(maindeck.deal_one())
 
     def get_card(self):
-        self.playerdeck.pop(0)
+        self.playerdeck.pop()
+        self.numofcards-=1
+        return self.playerdeck.pop()
 
     def add_card(self, maindeck):
         if maindeck != DeckOfCards():
             raise TypeError("Invalid Type, Must be DeckOfCards.")
         self.playerdeck.append(maindeck.deal_one())
+        self.numofcards+=1
 
     def show(self):
         print(self.name)
-        print(self.playerdeck)
+        print(f"{self.playerdeck} ({self.numofcards} Cards)")
 
     def __gt__(self, other):
         if len(self.playerdeck) > len(other.playerdeck):
