@@ -15,7 +15,7 @@ class CardGame:
     def new_game(self):
         self.deck.shuffle()
         self.player1.set_hand(self.deck)
-        self.player1.set_hand(self.deck)
+        self.player2.set_hand(self.deck)
 
     def get_winner(self):
         if self.player1 > self.player2:

@@ -5,5 +5,4 @@ from Card__Game.CardGame import CardGame
 
 
 deck1 = DeckOfCards()
-print(deck1.deal_one())
-deck1.show()
+game1 = CardGame('ori', 'amit', deck1)
