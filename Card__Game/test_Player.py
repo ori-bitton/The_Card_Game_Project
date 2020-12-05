@@ -1,5 +1,7 @@
 from unittest import TestCase
-from Card__Game.Player import Player,DeckOfCards
+from Card__Game.Player import Player
+from Card__Game.DeckOfCards import DeckOfCards
+
 
 class TestPlayer(TestCase):
     def setUp(self):
