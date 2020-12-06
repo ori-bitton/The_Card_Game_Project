@@ -4,7 +4,9 @@ from Card__Game.Player import Player
 
 class CardGame:
 
-    def __init__(self, name1, name2, deck, hand = 10):
+    def __init__(self, name1, name2, deck, hand=10):
+        global a
+        a = True
         self.deck = deck
         if type(deck) != DeckOfCards:
             raise TypeError("must be DeckOfCards type")
@@ -13,9 +15,14 @@ class CardGame:
         self.new_game()
 
     def new_game(self):
-        self.deck.shuffle()
-        self.player1.set_hand(self.deck)
-        self.player2.set_hand(self.deck)
+        global a
+        if a is True:
+            self.deck.shuffle()
+            self.player1.set_hand(self.deck)
+            self.player2.set_hand(self.deck)
+            a = False
+        else:
+            raise ReferenceError("new_game function may only run in __init__.")
 
     def get_winner(self):
         if self.player1 > self.player2:
@@ -24,4 +31,3 @@ class CardGame:
             return self.player2
         elif self.player1 == self.player2:
             return
-

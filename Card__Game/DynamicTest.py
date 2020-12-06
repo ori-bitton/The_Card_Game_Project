@@ -6,3 +6,4 @@ from Card__Game.CardGame import CardGame
 
 deck1 = DeckOfCards()
 game1 = CardGame('ori', 'amit', deck1)
+game1.new_game()

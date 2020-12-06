@@ -16,7 +16,7 @@ class Player:
 
     def get_card(self):
         self.playerdeck.pop()
-        self.numofcards-=1
+        self.numofcards -= 1
         return self.playerdeck.pop()
 
     def add_card(self, maindeck):

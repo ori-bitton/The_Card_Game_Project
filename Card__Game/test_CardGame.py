@@ -11,12 +11,15 @@ class TestCardGame(TestCase):
         self.game1 = CardGame('Amit', 'Ori', self.deck1, 20)
 
     def test_new_game(self):
-        self.game1.new_game()
         self.assertNotEqual(self.deck1.deck, self.game1.deck)
         self.assertEqual(len(self.game1.player1.playerdeck), 20)
         self.assertEqual(len(self.game1.player2.playerdeck), 20)
-        self.assertNotIn(self.game1.player1.playerdeck, self.game1.deck)
-        self.assertNotIn(self.game1.player2.playerdeck, self.game1.deck)
+        for i in range(20):
+            self.assertNotIn(self.game1.player1.playerdeck[i], self.deck1.deck)
+            self.assertNotIn(self.game1.player2.playerdeck[i], self.deck1.deck)
+        # self.assertRaises...
 
     def test_get_winner(self):
-        pass
+        self.game1.player2.get_card()
+        self.assertNotEqual(self.game1.player1.playerdeck, self.game1.player2.playerdeck)
+        self.assertEqual(self.game1.get_winner(), self.game1.player1)
