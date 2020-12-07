@@ -7,6 +7,4 @@ player1=Player('Amit')
 deck1 = DeckOfCards()
 #game1 = CardGame('ori', 'amit', deck1)
 player1.set_hand(deck1)
-for i in range(11):
-    player1.get_card()
-
+print(player1.show())
