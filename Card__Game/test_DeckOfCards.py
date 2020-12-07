@@ -18,12 +18,15 @@ class TestDeckOfCards(TestCase):
             self.assertEqual(count, 1)
 
     def test_shuffle(self):  # Testing the shuffle() function.
+        copy_deck1 = self.deck1.deck[:]
         self.deck1.shuffle()
-        self.assertNotEqual(self.deck1, self.deck1.shuffle())
-        self.assertEqual(len(self.deck1.deck), 52)
-        self.assertEqual(self.deck2.shuffle(), self.deck2)  # Shuffling an empty deck will change nothing.
+        copy_deck2 = self.deck2.deck[:]
+        self.deck2.shuffle()
+        self.assertNotEqual(self.deck1.deck, copy_deck1)  # Shuffling will change the deck list.
+        self.assertEqual(len(self.deck1.deck), 52)        # but won't change the number of cards.
+        self.assertEqual(self.deck2.deck, copy_deck2)     # Shuffling an empty deck will change nothing.
 
-    def test_deal_one(self):  # Testing the deal_one() function with valid values.
+    def test_deal_one(self):  # Testing the deal_one() function.
         card1 = self.deck1.deal_one()
         self.assertEqual(type(card1), Card)
         self.assertNotIn(card1, self.deck1.deck)
