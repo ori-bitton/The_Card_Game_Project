@@ -34,3 +34,5 @@ class TestCard(TestCase):
         self.assertRaises(KeyError, self.card1.__init__(2, "Diamond"), "Diamond", 1)
         self.assertRaises(KeyError, self.card1.__init__(2, "Diamond"), "Diamond", "Test")
         self.assertRaises(KeyError, self.card1.__init__(2, "Diamond"), "Diamond", "diamond")
+        self.assertRaises(KeyError, self.card1.__init__(2, "Diamond"), 2, -2)
+

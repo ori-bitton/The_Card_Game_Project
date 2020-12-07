@@ -20,12 +20,19 @@ class TestPlayer(TestCase):
         self.assertEqual(len(self.maindeck.deck), 32)
 
         #Players deck length needs to be equal to numofcards
-        self.assertEqual(len(self.player1.playerdeck),self.player1.numofcards)
-        self.assertEqual(len(self.player2.playerdeck),self.player2.numofcards)
-
+        self.assertEqual(len(self.player1.playerdeck), self.player1.numofcards)
+        self.assertEqual(len(self.player2.playerdeck), self.player2.numofcards)
 
     def test_get_card(self):
-        pass
+        #The function takes a card from the player and presents it
+        self.player1.set_hand(self.maindeck)
+        self.player1.get_card()
+        self.assertEqual(len(self.player1.playerdeck),self.player1.numofcards,9)
+
+        #Edge Cases
+        self.assertRaises(IndexError,self.player1.numofcards,9,-1)
+        self.assertRaises(IndexError,self.player1.numofcards,9,28)
+        self.assertRaises(IndexError,self.player2.get_card())
 
     def test_add_card(self):
         pass

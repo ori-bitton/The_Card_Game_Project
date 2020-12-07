@@ -6,8 +6,8 @@ class Player:
     def __init__(self, name, numofcards=10):
         self.name = str(name)
         self.numofcards = numofcards
-        if self.numofcards > 26:
-            self.numofcards = 26
+        if self.numofcards > 26 or self.numofcards < 0:
+            raise IndexError("A player's deck has to be between 0 and 26")
         self.playerdeck = []
 
     def set_hand(self, maindeck):
@@ -15,8 +15,7 @@ class Player:
             self.playerdeck.append(maindeck.deal_one())
 
     def get_card(self):
-        self.playerdeck.pop()
-        self.numofcards -= 1
+        self.numofcards-=1
         return self.playerdeck.pop()
 
     def add_card(self, maindeck):
@@ -26,8 +25,7 @@ class Player:
         self.numofcards+=1
 
     def show(self):
-        print(self.name)
-        print(f"{self.playerdeck} ({self.numofcards} Cards)")
+        return f"{self.name}\n{self.playerdeck} ({self.numofcards} Cards)"
 
     def __gt__(self, other):
         if len(self.playerdeck) > len(other.playerdeck):
