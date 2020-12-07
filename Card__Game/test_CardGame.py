@@ -1,6 +1,5 @@
 from unittest import TestCase
 from Card__Game.CardGame import CardGame
-from Card__Game.Player import Player
 from Card__Game.DeckOfCards import DeckOfCards
 
 
@@ -22,5 +21,10 @@ class TestCardGame(TestCase):
 
     def test_get_winner(self):
         self.game1.player2.get_card()
-        self.assertNotEqual(self.game1.player1.playerdeck, self.game1.player2.playerdeck)
         self.assertEqual(self.game1.get_winner(), self.game1.player2)
+
+    def test_invalid_values(self):  # Testing different functions with wrong arguments.
+        with self.assertRaises(TypeError):
+            CardGame([1, 2, 3], {1: 10, 2: 20, 3: 30}, 'test')
+            self.game1.get_winner('test')
+            self.game1.new_game('test')

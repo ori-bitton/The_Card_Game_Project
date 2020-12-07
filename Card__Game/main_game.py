@@ -3,7 +3,8 @@ from Card__Game.Player import Player
 from Card__Game.CardGame import CardGame
 
 deck = DeckOfCards()
-game = CardGame('Amit', 'Ori', deck)
+game = CardGame('Player 1', 'Player 2', deck)
+
 game.player1.show()
 game.player2.show()
 
@@ -22,11 +23,9 @@ for i in range(10):
         print(f"Round {i + 1} Winner:")
         game.player2.show()
         print(f"Cards thrown: {player1_card}, {player2_card}.")
-    else:
-        pass
 
 winner = game.get_winner()
-if type(winner) != Player:
+if winner is None:
     print("Game Draw")
 else:
     print(f"Game Winner: ")

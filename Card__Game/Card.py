@@ -1,8 +1,8 @@
 class Card:
 
     def __init__(self, value, shape):
-        self.value = value
-        self.shape = shape
+        self.value = int(value)
+        self.shape = str(shape)
         self.cards = {1: "Ace", 2: "Two", 3: "Three", 4: "Four", 5: "Five", 6: "Six", 7: "Seven", 8: "Eight", 9: "Nine", 10: "Ten", 11: "Jack", 12: "Queen", 13: "King"}
         self.suit = self.cards[self.value]
         self.shapes = {"Diamond": 1, "Spade": 2, "Heart": 3, "Club": 4}
