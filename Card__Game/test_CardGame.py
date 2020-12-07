@@ -27,5 +27,5 @@ class TestCardGame(TestCase):
     def test_invalid_values(self):  # Testing different functions with wrong arguments.
         with self.assertRaises(TypeError):
             CardGame([1, 2, 3], {1: 10, 2: 20, 3: 30}, 'test')
-            self.game1.get_winner('test')
-            self.game1.new_game('test')
+            self.game1.get_winner("test")
+            self.game1.new_game("test")

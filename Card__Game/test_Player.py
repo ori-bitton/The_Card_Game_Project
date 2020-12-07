@@ -29,7 +29,7 @@ class TestPlayer(TestCase):
         self.assertEqual(len(self.player2.playerdeck), self.player2.numofcards)
 
     # Testing the deal_one function that appears in the set_hand function.
-    @mock.patch('Card__Game.DeckOfCards.DeckOfCards.deal_one', return_value = -1)
+    @mock.patch('Card__Game.DeckOfCards.DeckOfCards.deal_one', return_value=-1)
     def test_set_hand_mock(self, mocked_deal_one):
         self.player1.set_hand(self.maindeck)
         self.assertIn(-1, self.player1.playerdeck)
