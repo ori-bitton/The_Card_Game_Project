@@ -18,10 +18,13 @@ class DeckOfCards:
         print(f"{self.deck}")
 
     def shuffle(self):
-        shuffle(self.deck)
+        if len(self.deck) > 0:
+            shuffle(self.deck)
+        else:
+            print("Deck has no Cards.")
 
     def deal_one(self):
-        if self.deck != 0:
+        if len(self.deck) > 0:
             return self.deck.pop(randint(0, len(self.deck)-1))
         else:
             print("Deck has no Cards.")

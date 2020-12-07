@@ -9,6 +9,7 @@ class TestDeckOfCards(TestCase):
         self.deck1 = DeckOfCards()
 
     def test_start(self):
+        # Testing the startup of a new deck.
         self.assertEqual(type(self.deck1), DeckOfCards)
         self.assertEqual(len(self.deck1.deck), 52)
         for i in range(len(self.deck1.deck)):
@@ -16,15 +17,24 @@ class TestDeckOfCards(TestCase):
             self.assertEqual(count, 1)
 
     def test_shuffle(self):
+        # Testing the shuffle() function.
         self.assertNotEqual(self.deck1, self.deck1.shuffle())
         self.assertEqual(len(self.deck1.deck), 52)
 
     def test_deal_one_valid(self):
+        # Testing the deal_one() function with valid values.
         card1 = self.deck1.deal_one()
         self.assertEqual(type(card1), Card)
         self.assertNotIn(card1, self.deck1.deck)
         self.assertEqual(len(self.deck1.deck), 51)
 
+    def test_empty_deck(self):
+        for i in range(52):
+            self.deck1.deal_one()
+        self.assertEqual(self.deck1.shuffle(), None)
+        self.assertEqual(self.deck1.deal_one(), None)
+
     def test_funcs_invalid(self):
         self.assertRaises(TypeError, self.deck1.deal_one(), 'test')
         self.assertRaises(TypeError, self.deck1.shuffle(), 'test')
+        self.assertRaises(TypeError, self.deck1.show(), 'test')
