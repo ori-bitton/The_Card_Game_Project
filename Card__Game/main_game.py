@@ -1,10 +1,8 @@
 from Card__Game.Loading import Loading
-from Card__Game.DeckOfCards import DeckOfCards
 from Card__Game.CardGame import CardGame
 from pyfiglet import Figlet
 
-deck = DeckOfCards()
-game = CardGame('Player 1', 'Player 2', deck)
+game = CardGame('Amit', 'Ori')
 
 custom_fig = Figlet(font='ivrit')
 print(custom_fig.renderText('מלחמה'))
@@ -15,9 +13,9 @@ game.player1.show()
 game.player2.show()
 load = Loading(5)
 
-print("\nStart Game !")
+print("Start Game !")
 for i in range(10):
-    load = Loading(3)
+    load.playing(3)
     player1_card = game.player1.get_card()
     player2_card = game.player2.get_card()
     if player1_card > player2_card:
