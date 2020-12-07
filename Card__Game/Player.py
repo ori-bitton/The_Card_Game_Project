@@ -1,4 +1,4 @@
-from Card__Game.DeckOfCards import DeckOfCards
+from Card__Game.Card import Card
 
 
 class Player:
@@ -15,15 +15,17 @@ class Player:
             self.playerdeck.append(maindeck.deal_one())
 
     def get_card(self):
-        self.playerdeck.pop()
-        self.numofcards -= 1
-        return self.playerdeck.pop()
+        if self.playerdeck != 0:
+            self.numofcards -= 1
+            return self.playerdeck.pop()
+        else:
+            print("Player has no Cards.")
 
-    def add_card(self, maindeck):
-        if maindeck != DeckOfCards():
-            raise TypeError("Invalid Type, Must be DeckOfCards.")
-        self.playerdeck.append(maindeck.deal_one())
-        self.numofcards+=1
+    def add_card(self, card):
+        if type(card) != Card:
+            raise TypeError("Invalid Type, Must be Card.")
+        self.playerdeck.append(card)
+        self.numofcards += 1
 
     def show(self):
         print(self.name)

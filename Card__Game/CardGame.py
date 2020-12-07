@@ -26,8 +26,8 @@ class CardGame:
 
     def get_winner(self):
         if self.player1 > self.player2:
-            return self.player1
-        elif self.player2 > self.player1:
             return self.player2
+        elif self.player2 > self.player1:
+            return self.player1
         elif self.player1 == self.player2:
             return
