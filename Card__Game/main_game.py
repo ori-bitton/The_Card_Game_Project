@@ -1,9 +1,14 @@
 from Card__Game.Loading import Loading
 from Card__Game.DeckOfCards import DeckOfCards
 from Card__Game.CardGame import CardGame
+from pyfiglet import Figlet
 
 deck = DeckOfCards()
 game = CardGame('Player 1', 'Player 2', deck)
+
+custom_fig = Figlet(font='ivrit')
+print(custom_fig.renderText('מלחמה'))
+
 
 print("Players:")
 game.player1.show()
