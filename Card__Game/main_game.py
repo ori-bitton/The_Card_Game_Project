@@ -1,12 +1,21 @@
 from Card__Game.Loading import Loading
 from Card__Game.CardGame import CardGame
-from pyfiglet import Figlet
+from time import sleep
 
 game = CardGame('Amit', 'Ori')
 
-custom_fig = Figlet(font='ivrit')
-print(custom_fig.renderText('מלחמה'))
-
+print("██╗    ██╗ █████╗ ██████╗  ██████╗  █████╗ ███╗   ███╗███████╗███████╗")
+sleep(0.5)
+print("██║    ██║██╔══██╗██╔══██╗██╔════╝ ██╔══██╗████╗ ████║██╔════╝██╔════╝")
+sleep(0.5)
+print("██║ █╗ ██║███████║██████╔╝██║  ███╗███████║██╔████╔██║█████╗  ███████╗")
+sleep(0.5)
+print("██║███╗██║██╔══██║██╔══██╗██║   ██║██╔══██║██║╚██╔╝██║██╔══╝  ╚════██║")
+sleep(0.5)
+print("╚███╔███╔╝██║  ██║██║  ██║╚██████╔╝██║  ██║██║ ╚═╝ ██║███████╗███████║")
+sleep(0.5)
+print(" ╚══╝╚══╝ ╚═╝  ╚═╝╚═╝  ╚═╝ ╚═════╝ ╚═╝  ╚═╝╚═╝     ╚═╝╚══════╝╚══════╝")
+sleep(1)
 
 print("Players:")
 game.player1.show()
