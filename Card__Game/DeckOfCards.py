@@ -21,4 +21,7 @@ class DeckOfCards:
         shuffle(self.deck)
 
     def deal_one(self):
-        return self.deck.pop(randint(0, len(self.deck)-1))
+        if self.deck != 0:
+            return self.deck.pop(randint(0, len(self.deck)-1))
+        else:
+            print("Deck has no Cards.")
