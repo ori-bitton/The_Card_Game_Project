@@ -1,5 +1,4 @@
 from Card__Game.DeckOfCards import DeckOfCards
-from Card__Game.Player import Player
 from Card__Game.CardGame import CardGame
 
 deck = DeckOfCards()

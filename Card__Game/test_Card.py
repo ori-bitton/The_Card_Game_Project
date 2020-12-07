@@ -8,7 +8,7 @@ class TestCard(TestCase):
         self.card2 = Card(12, "Heart")
         self.card3 = Card(12, "Club")
         self.card4 = Card(3, "Diamond")
-        self.card5 = Card(6, "Club")
+        self.card5 = Card(1, "Club")
 
     def tearDown(self):
         pass

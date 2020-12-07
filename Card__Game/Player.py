@@ -18,7 +18,7 @@ class Player:
     def get_card(self):
         if self.playerdeck != 0:
             self.numofcards -= 1
-            return self.playerdeck.pop(randint(0,self.numofcards))
+            return self.playerdeck.pop(randint(0, self.numofcards))
         else:
             print("Player has no Cards.")
 

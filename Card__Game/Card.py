@@ -18,7 +18,11 @@ class Card:
         return f"{self.suit} of {self.shape}s"
 
     def __gt__(self, other):
-        if self.value > other.value:
+        if self.value == 1 and other.value != 1:
+            return True
+        elif self.value != 1 and other.value == 1:
+            return False
+        elif self.value > other.value:
             return True
         elif self.value == other.value:
             if self.shapevalue > other.shapevalue:
