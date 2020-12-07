@@ -11,7 +11,9 @@ class TestDeckOfCards(TestCase):
     def test_start(self):
         self.assertEqual(type(self.deck1), DeckOfCards)
         self.assertEqual(len(self.deck1.deck), 52)
-        # repeat test
+        for i in range(len(self.deck1.deck)):
+            count = self.deck1.deck.count(self.deck1.deck[i])
+            self.assertEqual(count, 1)
 
     def test_shuffle(self):
         self.assertNotEqual(self.deck1, self.deck1.shuffle())

@@ -17,9 +17,10 @@ class TestCardGame(TestCase):
         for i in range(20):
             self.assertNotIn(self.game1.player1.playerdeck[i], self.deck1.deck)
             self.assertNotIn(self.game1.player2.playerdeck[i], self.deck1.deck)
-        # self.assertRaises...
+        with self.assertRaises(ReferenceError):
+            self.game1.new_game()
 
     def test_get_winner(self):
         self.game1.player2.get_card()
         self.assertNotEqual(self.game1.player1.playerdeck, self.game1.player2.playerdeck)
-        self.assertEqual(self.game1.get_winner(), self.game1.player1)
+        self.assertEqual(self.game1.get_winner(), self.game1.player2)
