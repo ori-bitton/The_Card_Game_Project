@@ -20,7 +20,7 @@ class Player:
             raise TypeError("set_hand function must receive a DeckOfCards.")
 
     def get_card(self):  # Take a card from the player.
-        if self.playerdeck != 0:
+        if len(self.playerdeck) != 0:
             self.numofcards -= 1
             return self.playerdeck.pop(randint(0, self.numofcards))
         else:
