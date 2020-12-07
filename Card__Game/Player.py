@@ -1,4 +1,5 @@
 from Card__Game.Card import Card
+from Card__Game.DeckOfCards import DeckOfCards
 from random import randint
 
 
@@ -12,8 +13,11 @@ class Player:
         self.playerdeck = []
 
     def set_hand(self, maindeck):  # Set the player's hand.
-        for i in range(self.numofcards):
-            self.playerdeck.append(maindeck.deal_one())
+        if type(maindeck) == DeckOfCards:
+            for i in range(self.numofcards):
+                self.playerdeck.append(maindeck.deal_one())
+        else:
+            raise TypeError("set_hand function must receive a DeckOfCards.")
 
     def get_card(self):  # Take a card from the player.
         if self.playerdeck != 0:
