@@ -1,4 +1,5 @@
 from Card__Game.Card import Card
+from random import randint
 
 
 class Player:
@@ -6,8 +7,8 @@ class Player:
     def __init__(self, name, numofcards=10):
         self.name = str(name)
         self.numofcards = numofcards
-        if self.numofcards > 26:
-            self.numofcards = 26
+        if self.numofcards > 26 or self.numofcards < 0:
+            raise IndexError("A player's deck has to be between 0 and 26")
         self.playerdeck = []
 
     def set_hand(self, maindeck):
@@ -17,7 +18,7 @@ class Player:
     def get_card(self):
         if self.playerdeck != 0:
             self.numofcards -= 1
-            return self.playerdeck.pop()
+            return self.playerdeck.pop(randint(0,self.numofcards))
         else:
             print("Player has no Cards.")
 
