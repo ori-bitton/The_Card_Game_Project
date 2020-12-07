@@ -1,4 +1,4 @@
-from Card__Game.DeckOfCards import DeckOfCards
+from Card__Game.Card import Card
 from random import randint
 
 
@@ -16,14 +16,17 @@ class Player:
             self.playerdeck.append(maindeck.deal_one())
 
     def get_card(self):
-        if self.numofcards<=0:
-            raise IndexError("Your deck is already empty.")
-        self.numofcards-=1
-        return self.playerdeck.pop(randint(0,self.numofcards))
+        if self.playerdeck != 0:
+            self.numofcards -= 1
+            return self.playerdeck.pop(randint(0,self.numofcards))
+        else:
+            print("Player has no Cards.")
 
-    def add_card(self, maindeck):
-        self.playerdeck.append(maindeck.deal_one())
-        self.numofcards+=1
+    def add_card(self, card):
+        if type(card) != Card:
+            raise TypeError("Invalid Type, Must be Card.")
+        self.playerdeck.append(card)
+        self.numofcards += 1
 
     def show(self):
         return f"{self.name}\n{self.playerdeck} ({self.numofcards} Cards)"
