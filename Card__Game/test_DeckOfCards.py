@@ -15,6 +15,9 @@ class TestDeckOfCards(TestCase):
             count = self.deck1.deck.count(self.deck1.deck[i])
             self.assertEqual(count, 1)
 
+    def test_show(self):
+        self.assertEqual(self.deck1.show(), None)
+
     def test_shuffle(self):  # Testing the shuffle() function.
         self.assertNotEqual(self.deck1, self.deck1.shuffle())
         self.assertEqual(len(self.deck1.deck), 52)

@@ -31,6 +31,7 @@ class TestCard(TestCase):
         self.assertTrue(self.card2 < self.card3)  # Equal Value.
         self.assertTrue(self.card1 < self.card4)  # Equal Suit.
         self.assertTrue(self.card1 < self.card5)  # Different Value & Suit.
+        self.assertTrue(self.card5 > self.card3)  # Decision Coverage.
 
     def test_invalidValue(self):
         with self.assertRaises(KeyError):
@@ -40,5 +41,3 @@ class TestCard(TestCase):
             self.card1.__init__(2, 1)
             self.card1.__init__(2, "Test")
             self.card1.__init__(2, "diamond")
-
-

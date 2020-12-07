@@ -11,24 +11,24 @@ class Player:
             raise IndexError("A player's deck has to be between 0 and 26")
         self.playerdeck = []
 
-    def set_hand(self, maindeck):
+    def set_hand(self, maindeck):  # Set the player's hand.
         for i in range(self.numofcards):
             self.playerdeck.append(maindeck.deal_one())
 
-    def get_card(self):
+    def get_card(self):  # Take a card from the player.
         if self.playerdeck != 0:
             self.numofcards -= 1
             return self.playerdeck.pop(randint(0, self.numofcards))
         else:
             print("Player has no Cards.")
 
-    def add_card(self, card):
+    def add_card(self, card):  # The player adds a card to his hand.
         if type(card) != Card:
             raise TypeError("Invalid Type, Must be Card.")
         self.playerdeck.append(card)
         self.numofcards += 1
 
-    def show(self):
+    def show(self):  # SHows the player's details: Name, Cards & Number of cards.
         print(self.name)
         print(f"{self.playerdeck} ({self.numofcards} Cards)")
 
