@@ -5,13 +5,14 @@ from Card__Game.Player import Player
 class CardGame:
 
     def __init__(self, name1, name2, deck, hand=10):
-        self.deck = deck
         if type(deck) != DeckOfCards:
             raise TypeError("must be DeckOfCards type.")
+        else:
+            self.deck = deck
         self.player1 = Player(str(name1), hand)
         self.player2 = Player(str(name2), hand)
         global a
-        a = True  # a variable created fro new_game function.
+        a = True  # a variable created for new_game function.
         self.new_game()
 
     def new_game(self):
@@ -30,4 +31,4 @@ class CardGame:
         elif self.player2 > self.player1:
             return self.player1
         elif self.player1 == self.player2:
-            return
+            return None
