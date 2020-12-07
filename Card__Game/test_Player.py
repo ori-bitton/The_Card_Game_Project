@@ -1,6 +1,7 @@
 from unittest import TestCase
 from Card__Game.Player import Player
 from Card__Game.DeckOfCards import DeckOfCards
+from Card__Game.Card import Card
 
 
 class TestPlayer(TestCase):
@@ -8,6 +9,7 @@ class TestPlayer(TestCase):
         self.player1=Player("Amit")
         self.player2=Player("Ori")
         self.maindeck=DeckOfCards()
+        self.card1=Card(2,"Heart")
         print("SetUp")
 
     def tearDown(self):
@@ -37,6 +39,5 @@ class TestPlayer(TestCase):
     def test_add_card(self):
         #The function adds a cards from the main deck to the player deck.
         self.player1.set_hand(self.maindeck)
-        self.player1.add_card(self.maindeck)
+        self.player1.add_card(self.card1)
         self.assertEqual(len(self.player1.playerdeck),self.player1.numofcards)
-        self.assertEqual(len(self.maindeck.deck), 41)
