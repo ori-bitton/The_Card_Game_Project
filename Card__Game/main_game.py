@@ -8,11 +8,11 @@ game = CardGame('Player 1', 'Player 2', deck)
 print("Players:")
 game.player1.show()
 game.player2.show()
-# load = Loading(5)
+load = Loading(5)
 
 print("\nStart Game !")
 for i in range(10):
-    # load = Loading(3)
+    load = Loading(3)
     player1_card = game.player1.get_card()
     player2_card = game.player2.get_card()
     if player1_card > player2_card:
@@ -26,7 +26,7 @@ for i in range(10):
         print(f"Round {i + 1} Winner: {game.player2.name} ({len(game.player2.playerdeck)} Cards)")
         print(f"Cards thrown: {player1_card}, {player2_card}.")
 
-# load = Loading(2)
+load = Loading(2)
 winner = game.get_winner()
 if winner is None:
     print("Game Draw")
