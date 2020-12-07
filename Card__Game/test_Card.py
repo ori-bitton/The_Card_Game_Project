@@ -15,6 +15,8 @@ class TestCard(TestCase):
 
     def test___repr__(self):
         self.assertEqual(self.card1.__repr__(), 'Two of Diamonds')
+        self.assertEqual(self.card2.__repr__(), 'Queen of Hearts')
+        self.assertEqual(self.card3.__repr__(), 'Queen of Clubs')
 
     def test___eq__(self):
         card_test = self.card1
@@ -31,10 +33,12 @@ class TestCard(TestCase):
         self.assertTrue(self.card1 < self.card5)  # Different Value & Suit.
 
     def test_invalidValue(self):
-        self.assertRaises(KeyError, self.card1.__init__(2, "Diamond"), 2, 14)
-        self.assertRaises(KeyError, self.card1.__init__(2, "Diamond"), 2, 'Two')
-        self.assertRaises(KeyError, self.card1.__init__(2, "Diamond"), 2, 14)
-        self.assertRaises(KeyError, self.card1.__init__(2, "Diamond"), "Diamond", 1)
-        self.assertRaises(KeyError, self.card1.__init__(2, "Diamond"), "Diamond", "Test")
-        self.assertRaises(KeyError, self.card1.__init__(2, "Diamond"), "Diamond", "diamond")
-        self.assertRaises(KeyError, self.card1.__init__(2, "Diamond"), 2, -2)
+        with self.assertRaises(KeyError):
+            self.card1.__init__(14, "Diamond")
+            self.card1.__init__('Two', "Diamond")
+            self.card1.__init__(-2, "Diamond")
+            self.card1.__init__(2, 1)
+            self.card1.__init__(2, "Test")
+            self.card1.__init__(2, "diamond")
+
+
