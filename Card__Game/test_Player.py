@@ -27,15 +27,16 @@ class TestPlayer(TestCase):
         #The function takes a card from the player and presents it
         self.player1.set_hand(self.maindeck)
         self.player1.get_card()
-        self.assertEqual(len(self.player1.playerdeck),self.player1.numofcards,9)
+        self.assertEqual(len(self.player1.playerdeck),self.player1.numofcards)
 
         #Edge Cases
-        self.assertRaises(IndexError,self.player1.numofcards,9,-1)
-        self.assertRaises(IndexError,self.player1.numofcards,9,28)
-        self.assertRaises(IndexError,self.player2.get_card())
+        with self.assertRaises(IndexError):
+            self.player2.get_card()
+            self.player1.numofcards=-1
 
     def test_add_card(self):
-        pass
-
-    def test_show(self):
-        pass
+        #The function adds a cards from the main deck to the player deck.
+        self.player1.set_hand(self.maindeck)
+        self.player1.add_card(self.maindeck)
+        self.assertEqual(len(self.player1.playerdeck),self.player1.numofcards)
+        self.assertEqual(len(self.maindeck.deck), 41)
