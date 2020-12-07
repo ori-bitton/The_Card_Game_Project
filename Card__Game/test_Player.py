@@ -1,4 +1,4 @@
-from unittest import TestCase
+from unittest import TestCase, mock
 from Card__Game.Player import Player
 from Card__Game.DeckOfCards import DeckOfCards
 from Card__Game.Card import Card
@@ -24,6 +24,11 @@ class TestPlayer(TestCase):
         # Players deck length needs to be equal to numofcards.
         self.assertEqual(len(self.player1.playerdeck), self.player1.numofcards)
         self.assertEqual(len(self.player2.playerdeck), self.player2.numofcards)
+
+    @mock.patch('Card__Game.DeckOfCards.DeckOfCards.deal_one', return_value = -1)
+    def test_set_hand_mock(self, mocked_deal_one):
+        self.player1.set_hand(self.maindeck)
+        self.assertIn(-1, self.player1.playerdeck)
 
     def test_get_card(self):
         # The function takes a card from the player and presents it
