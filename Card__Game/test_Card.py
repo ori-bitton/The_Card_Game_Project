@@ -25,7 +25,7 @@ class TestCard(TestCase):
     def test___gt__(self):
         card_test = self.card1
         self.assertFalse(self.card1 > card_test)  # Equal Cards.
-        self.assertTrue(self.card7 > self.card3)  # Equal Value.
+        self.assertTrue(self.card3 > self.card7)  # Equal Value.
         self.assertTrue(self.card4 > self.card1)  # Equal Suit.
         self.assertTrue(self.card4 > self.card5)  # Different Value & Suit.
         # Ace Tests:

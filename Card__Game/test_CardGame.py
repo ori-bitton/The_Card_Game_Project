@@ -11,8 +11,8 @@ class TestCardGame(TestCase):
         self.assertEqual(len(self.game1.player1.playerdeck), 20)  # Testing both players got 20 cards.
         self.assertEqual(len(self.game1.player2.playerdeck), 20)
         for i in range(20):  # Testing no card repeats itself in the deck.
-            self.assertNotIn(self.game1.player1.playerdeck[i], self.game1.deck)
-            self.assertNotIn(self.game1.player2.playerdeck[i], self.game1.deck)
+            self.assertNotIn(self.game1.player1.playerdeck[i], self.game1.deck.deck)
+            self.assertNotIn(self.game1.player2.playerdeck[i], self.game1.deck.deck)
         with self.assertRaises(ReferenceError):
             self.game1.new_game()  # Testing new_game can't run outside the constructor.
 
